@@ -200,7 +200,7 @@ class ServiceNormalizer implements DenormalizerInterface, NormalizerInterface, D
             if (isset($data->{'environment'})) {
                 $values_10 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
                 foreach ($data->{'environment'} as $key => $value_19) {
-                    if (preg_match('/.+/', $key) && array_key_exists($key, $value_19)) {
+                    if (preg_match('/.+/', $key) && array_key_exists($key, $data->{'environment'})) {
                         $value_20 = $value_19;
                         if (is_string($value_19)) {
                             $value_20 = $value_19;
@@ -251,7 +251,7 @@ class ServiceNormalizer implements DenormalizerInterface, NormalizerInterface, D
             if (isset($data->{'extra_hosts'})) {
                 $values_14 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
                 foreach ($data->{'extra_hosts'} as $key_1 => $value_26) {
-                    if (preg_match('/.+/', $key_1) && array_key_exists($key_1, $value_26)) {
+                    if (preg_match('/.+/', $key_1) && array_key_exists($key_1, $data->{'extra_hosts'})) {
                         $value_27 = $value_26;
                         if (is_string($value_26)) {
                             $value_27 = $value_26;
@@ -300,7 +300,7 @@ class ServiceNormalizer implements DenormalizerInterface, NormalizerInterface, D
             if (isset($data->{'labels'})) {
                 $values_16 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
                 foreach ($data->{'labels'} as $key_2 => $value_30) {
-                    if (preg_match('/.+/', $key_2) && array_key_exists($key_2, $value_30)) {
+                    if (preg_match('/.+/', $key_2) && array_key_exists($key_2, $data->{'labels'})) {
                         $value_31 = $value_30;
                         if (is_string($value_30)) {
                             $value_31 = $value_30;
@@ -355,7 +355,7 @@ class ServiceNormalizer implements DenormalizerInterface, NormalizerInterface, D
             } elseif (isset($data->{'networks'})) {
                 $values_20 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
                 foreach ($data->{'networks'} as $key_3 => $value_36) {
-                    if (preg_match('/^[a-zA-Z0-9._-]+$/', $key_3) && array_key_exists($key_3, $value_36)) {
+                    if (preg_match('/^[a-zA-Z0-9._-]+$/', $key_3) && array_key_exists($key_3, $data->{'networks'})) {
                         $value_37 = $value_36;
                         if (is_object($value_36)) {
                             $value_37 = $value_36;
@@ -446,7 +446,7 @@ class ServiceNormalizer implements DenormalizerInterface, NormalizerInterface, D
             if (isset($data->{'sysctls'})) {
                 $values_24 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
                 foreach ($data->{'sysctls'} as $key_4 => $value_46) {
-                    if (preg_match('/.+/', $key_4) && array_key_exists($key_4, $value_46)) {
+                    if (preg_match('/.+/', $key_4) && array_key_exists($key_4, $data->{'sysctls'})) {
                         $value_47 = $value_46;
                         if (is_string($value_46)) {
                             $value_47 = $value_46;
@@ -503,7 +503,7 @@ class ServiceNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (property_exists($data, 'ulimits') && $data->{'ulimits'} !== null) {
             $values_27 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'ulimits'} as $key_5 => $value_51) {
-                if (preg_match('/^[a-z]+$/', $key_5) && array_key_exists($key_5, $value_51)) {
+                if (preg_match('/^[a-z]+$/', $key_5) && array_key_exists($key_5, $data->{'ulimits'})) {
                     $value_52 = $value_51;
                     if (is_int($value_51)) {
                         $value_52 = $value_51;
