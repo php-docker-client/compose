@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Docker\Compose\Normalizer;
+namespace DockerPhpClient\Compose\Normalizer;
 
 use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -25,12 +25,12 @@ class ServiceCredentialSpecNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Docker\\Compose\\Model\\ServiceCredentialSpec';
+        return $type === 'DockerPhpClient\\Compose\\Model\\ServiceCredentialSpec';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\Compose\Model\ServiceCredentialSpec;
+        return $data instanceof \DockerPhpClient\Compose\Model\ServiceCredentialSpec;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -41,7 +41,7 @@ class ServiceCredentialSpecNormalizer implements DenormalizerInterface, Normaliz
         if (isset($data->{'$ref'})) {
             return new Reference($data->{'$ref'}, $context['document-origin']);
         }
-        $object = new \Docker\Compose\Model\ServiceCredentialSpec();
+        $object = new \DockerPhpClient\Compose\Model\ServiceCredentialSpec();
         if (property_exists($data, 'file') && $data->{'file'} !== null) {
             $object->setFile($data->{'file'});
         }

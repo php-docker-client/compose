@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Docker\Compose\Normalizer;
+namespace DockerPhpClient\Compose\Normalizer;
 
 use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -25,12 +25,12 @@ class ServiceNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Docker\\Compose\\Model\\Service';
+        return $type === 'DockerPhpClient\\Compose\\Model\\Service';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\Compose\Model\Service;
+        return $data instanceof \DockerPhpClient\Compose\Model\Service;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -41,7 +41,7 @@ class ServiceNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (isset($data->{'$ref'})) {
             return new Reference($data->{'$ref'}, $context['document-origin']);
         }
-        $object = new \Docker\Compose\Model\Service();
+        $object = new \DockerPhpClient\Compose\Model\Service();
         $data = clone $data;
         if (property_exists($data, 'deploy') && $data->{'deploy'} !== null) {
             $value = $data->{'deploy'};
@@ -116,7 +116,7 @@ class ServiceNormalizer implements DenormalizerInterface, NormalizerInterface, D
             unset($data->{'container_name'});
         }
         if (property_exists($data, 'credential_spec') && $data->{'credential_spec'} !== null) {
-            $object->setCredentialSpec($this->denormalizer->denormalize($data->{'credential_spec'}, 'Docker\\Compose\\Model\\ServiceCredentialSpec', 'json', $context));
+            $object->setCredentialSpec($this->denormalizer->denormalize($data->{'credential_spec'}, 'DockerPhpClient\\Compose\\Model\\ServiceCredentialSpec', 'json', $context));
             unset($data->{'credential_spec'});
         }
         if (property_exists($data, 'depends_on') && $data->{'depends_on'} !== null) {
@@ -276,7 +276,7 @@ class ServiceNormalizer implements DenormalizerInterface, NormalizerInterface, D
             unset($data->{'extra_hosts'});
         }
         if (property_exists($data, 'healthcheck') && $data->{'healthcheck'} !== null) {
-            $object->setHealthcheck($this->denormalizer->denormalize($data->{'healthcheck'}, 'Docker\\Compose\\Model\\Healthcheck', 'json', $context));
+            $object->setHealthcheck($this->denormalizer->denormalize($data->{'healthcheck'}, 'DockerPhpClient\\Compose\\Model\\Healthcheck', 'json', $context));
             unset($data->{'healthcheck'});
         }
         if (property_exists($data, 'hostname') && $data->{'hostname'} !== null) {
@@ -333,7 +333,7 @@ class ServiceNormalizer implements DenormalizerInterface, NormalizerInterface, D
             unset($data->{'links'});
         }
         if (property_exists($data, 'logging') && $data->{'logging'} !== null) {
-            $object->setLogging($this->denormalizer->denormalize($data->{'logging'}, 'Docker\\Compose\\Model\\ServiceLogging', 'json', $context));
+            $object->setLogging($this->denormalizer->denormalize($data->{'logging'}, 'DockerPhpClient\\Compose\\Model\\ServiceLogging', 'json', $context));
             unset($data->{'logging'});
         }
         if (property_exists($data, 'mac_address') && $data->{'mac_address'} !== null) {

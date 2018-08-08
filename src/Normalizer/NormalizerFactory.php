@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Docker\Compose\Normalizer;
+namespace DockerPhpClient\Compose\Normalizer;
 
 class NormalizerFactory
 {

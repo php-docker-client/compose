@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Docker\Compose\Normalizer;
+namespace DockerPhpClient\Compose\Normalizer;
 
 use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -25,12 +25,12 @@ class FileNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Docker\\Compose\\Model\\File';
+        return $type === 'DockerPhpClient\\Compose\\Model\\File';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\Compose\Model\File;
+        return $data instanceof \DockerPhpClient\Compose\Model\File;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -41,7 +41,7 @@ class FileNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
         if (isset($data->{'$ref'})) {
             return new Reference($data->{'$ref'}, $context['document-origin']);
         }
-        $object = new \Docker\Compose\Model\File();
+        $object = new \DockerPhpClient\Compose\Model\File();
         $data = clone $data;
         if (property_exists($data, 'version') && $data->{'version'} !== null) {
             $object->setVersion($data->{'version'});
@@ -51,7 +51,7 @@ class FileNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'services'} as $key => $value) {
                 if (preg_match('/^[a-zA-Z0-9._-]+$/', $key) && is_object($value)) {
-                    $values[$key] = $this->denormalizer->denormalize($value, 'Docker\\Compose\\Model\\Service', 'json', $context);
+                    $values[$key] = $this->denormalizer->denormalize($value, 'DockerPhpClient\\Compose\\Model\\Service', 'json', $context);
                     continue;
                 }
             }
@@ -96,7 +96,7 @@ class FileNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
             $values_3 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'secrets'} as $key_3 => $value_5) {
                 if (preg_match('/^[a-zA-Z0-9._-]+$/', $key_3) && is_object($value_5)) {
-                    $values_3[$key_3] = $this->denormalizer->denormalize($value_5, 'Docker\\Compose\\Model\\Secret', 'json', $context);
+                    $values_3[$key_3] = $this->denormalizer->denormalize($value_5, 'DockerPhpClient\\Compose\\Model\\Secret', 'json', $context);
                     continue;
                 }
             }
@@ -107,7 +107,7 @@ class FileNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
             $values_4 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'configs'} as $key_4 => $value_6) {
                 if (preg_match('/^[a-zA-Z0-9._-]+$/', $key_4) && is_object($value_6)) {
-                    $values_4[$key_4] = $this->denormalizer->denormalize($value_6, 'Docker\\Compose\\Model\\Config', 'json', $context);
+                    $values_4[$key_4] = $this->denormalizer->denormalize($value_6, 'DockerPhpClient\\Compose\\Model\\Config', 'json', $context);
                     continue;
                 }
             }

@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Docker\Compose\Normalizer;
+namespace DockerPhpClient\Compose\Normalizer;
 
 use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -25,12 +25,12 @@ class SecretNormalizer implements DenormalizerInterface, NormalizerInterface, De
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Docker\\Compose\\Model\\Secret';
+        return $type === 'DockerPhpClient\\Compose\\Model\\Secret';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\Compose\Model\Secret;
+        return $data instanceof \DockerPhpClient\Compose\Model\Secret;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -41,7 +41,7 @@ class SecretNormalizer implements DenormalizerInterface, NormalizerInterface, De
         if (isset($data->{'$ref'})) {
             return new Reference($data->{'$ref'}, $context['document-origin']);
         }
-        $object = new \Docker\Compose\Model\Secret();
+        $object = new \DockerPhpClient\Compose\Model\Secret();
         $data = clone $data;
         if (property_exists($data, 'name') && $data->{'name'} !== null) {
             $object->setName($data->{'name'});

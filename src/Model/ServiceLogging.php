@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Docker\Compose\Model;
+namespace DockerPhpClient\Compose\Model;
 
 class ServiceLogging
 {

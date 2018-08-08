@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Docker\Compose\Normalizer;
+namespace DockerPhpClient\Compose\Normalizer;
 
 use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -25,12 +25,12 @@ class GenericResourcesItemNormalizer implements DenormalizerInterface, Normalize
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Docker\\Compose\\Model\\GenericResourcesItem';
+        return $type === 'DockerPhpClient\\Compose\\Model\\GenericResourcesItem';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\Compose\Model\GenericResourcesItem;
+        return $data instanceof \DockerPhpClient\Compose\Model\GenericResourcesItem;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -41,9 +41,9 @@ class GenericResourcesItemNormalizer implements DenormalizerInterface, Normalize
         if (isset($data->{'$ref'})) {
             return new Reference($data->{'$ref'}, $context['document-origin']);
         }
-        $object = new \Docker\Compose\Model\GenericResourcesItem();
+        $object = new \DockerPhpClient\Compose\Model\GenericResourcesItem();
         if (property_exists($data, 'discrete_resource_spec') && $data->{'discrete_resource_spec'} !== null) {
-            $object->setDiscreteResourceSpec($this->denormalizer->denormalize($data->{'discrete_resource_spec'}, 'Docker\\Compose\\Model\\GenericResourcesItemDiscreteResourceSpec', 'json', $context));
+            $object->setDiscreteResourceSpec($this->denormalizer->denormalize($data->{'discrete_resource_spec'}, 'DockerPhpClient\\Compose\\Model\\GenericResourcesItemDiscreteResourceSpec', 'json', $context));
         }
 
         return $object;

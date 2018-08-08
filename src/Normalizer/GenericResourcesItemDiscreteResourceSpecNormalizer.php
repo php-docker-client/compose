@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Docker\Compose\Normalizer;
+namespace DockerPhpClient\Compose\Normalizer;
 
 use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -25,12 +25,12 @@ class GenericResourcesItemDiscreteResourceSpecNormalizer implements Denormalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Docker\\Compose\\Model\\GenericResourcesItemDiscreteResourceSpec';
+        return $type === 'DockerPhpClient\\Compose\\Model\\GenericResourcesItemDiscreteResourceSpec';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\Compose\Model\GenericResourcesItemDiscreteResourceSpec;
+        return $data instanceof \DockerPhpClient\Compose\Model\GenericResourcesItemDiscreteResourceSpec;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -41,7 +41,7 @@ class GenericResourcesItemDiscreteResourceSpecNormalizer implements Denormalizer
         if (isset($data->{'$ref'})) {
             return new Reference($data->{'$ref'}, $context['document-origin']);
         }
-        $object = new \Docker\Compose\Model\GenericResourcesItemDiscreteResourceSpec();
+        $object = new \DockerPhpClient\Compose\Model\GenericResourcesItemDiscreteResourceSpec();
         if (property_exists($data, 'kind') && $data->{'kind'} !== null) {
             $object->setKind($data->{'kind'});
         }

@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Docker\Compose\Normalizer;
+namespace DockerPhpClient\Compose\Normalizer;
 
 use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -25,12 +25,12 @@ class HealthcheckNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Docker\\Compose\\Model\\Healthcheck';
+        return $type === 'DockerPhpClient\\Compose\\Model\\Healthcheck';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\Compose\Model\Healthcheck;
+        return $data instanceof \DockerPhpClient\Compose\Model\Healthcheck;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -41,7 +41,7 @@ class HealthcheckNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (isset($data->{'$ref'})) {
             return new Reference($data->{'$ref'}, $context['document-origin']);
         }
-        $object = new \Docker\Compose\Model\Healthcheck();
+        $object = new \DockerPhpClient\Compose\Model\Healthcheck();
         if (property_exists($data, 'disable') && $data->{'disable'} !== null) {
             $object->setDisable($data->{'disable'});
         }

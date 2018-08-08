@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Docker\Compose\Normalizer;
+namespace DockerPhpClient\Compose\Normalizer;
 
 use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -25,12 +25,12 @@ class ServiceLoggingNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Docker\\Compose\\Model\\ServiceLogging';
+        return $type === 'DockerPhpClient\\Compose\\Model\\ServiceLogging';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\Compose\Model\ServiceLogging;
+        return $data instanceof \DockerPhpClient\Compose\Model\ServiceLogging;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -41,7 +41,7 @@ class ServiceLoggingNormalizer implements DenormalizerInterface, NormalizerInter
         if (isset($data->{'$ref'})) {
             return new Reference($data->{'$ref'}, $context['document-origin']);
         }
-        $object = new \Docker\Compose\Model\ServiceLogging();
+        $object = new \DockerPhpClient\Compose\Model\ServiceLogging();
         if (property_exists($data, 'driver') && $data->{'driver'} !== null) {
             $object->setDriver($data->{'driver'});
         }

@@ -17,7 +17,7 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "Docker\\Compose\\": "src/"
+            "DockerPhpClient\\Compose\\": "src/"
         }
     },
     "require-dev": {
