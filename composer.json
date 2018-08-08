@@ -1,0 +1,27 @@
+{
+    "name": "docker-php-client/compose",
+    "description": "Library for loading and saving docker-compose.yml files",
+    "type": "library",
+    "require": {
+        "php": "^7.1",
+        "symfony/yaml": "^4.1",
+        "jane-php/json-schema-runtime": "^4.0"
+    },
+    "license": "apache-2.0",
+    "authors": [
+        {
+            "name": "Rustam Badrutdinov",
+            "email": "delightalmighty@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Docker\\Compose\\": "src/"
+        }
+    },
+    "require-dev": {
+        "jane-php/json-schema": "^4.0",
+        "friendsofphp/php-cs-fixer": "^2.7.3"
+    }
+}
