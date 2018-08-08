@@ -66,7 +66,7 @@ class ConfigNormalizer implements DenormalizerInterface, NormalizerInterface, De
             if (isset($data->{'labels'})) {
                 $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
                 foreach ($data->{'labels'} as $key => $value_2) {
-                    if (preg_match('/.+/', $key) && isset($value_2)) {
+                    if (preg_match('/.+/', $key) && array_key_exists($key, $value_2)) {
                         $value_3 = $value_2;
                         if (is_string($value_2)) {
                             $value_3 = $value_2;

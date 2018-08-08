@@ -61,7 +61,7 @@ class FileNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
         if (property_exists($data, 'networks') && $data->{'networks'} !== null) {
             $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'networks'} as $key_1 => $value_1) {
-                if (preg_match('/^[a-zA-Z0-9._-]+$/', $key_1) && isset($value_1)) {
+                if (preg_match('/^[a-zA-Z0-9._-]+$/', $key_1) && array_key_exists($key_1, $value_1)) {
                     $value_2 = $value_1;
                     if (is_object($value_1)) {
                         $value_2 = $value_1;
@@ -78,7 +78,7 @@ class FileNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
         if (property_exists($data, 'volumes') && $data->{'volumes'} !== null) {
             $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'volumes'} as $key_2 => $value_3) {
-                if (preg_match('/^[a-zA-Z0-9._-]+$/', $key_2) && isset($value_3)) {
+                if (preg_match('/^[a-zA-Z0-9._-]+$/', $key_2) && array_key_exists($key_2, $value_3)) {
                     $value_4 = $value_3;
                     if (is_object($value_3)) {
                         $value_4 = $value_3;

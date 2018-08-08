@@ -48,7 +48,7 @@ class ServiceLoggingNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'options') && $data->{'options'} !== null) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'options'} as $key => $value) {
-                if (preg_match('/^.+$/', $key) && isset($value)) {
+                if (preg_match('/^.+$/', $key) && array_key_exists($key, $value)) {
                     $value_1 = $value;
                     if (is_string($value)) {
                         $value_1 = $value;
